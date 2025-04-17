@@ -4,7 +4,7 @@ import sys
 
 def main():
     if len(sys.argv) != 2:
-        print("Usage: python main.py <path_to_book>")
+        print("Usage: python3 main.py <path_to_book>")
         sys.exit(1)
     
     file_content = get_book_text(sys.argv[1])
