@@ -20,11 +20,31 @@ def get_count_per_char(file_content):
     """
 
     count = {}
+    
     for char in file_content.lower():
-        if char in count:
-            count[char] += 1
-        else:
-            count[char] = 1
+        if char.isalpha():
+            if char in count:
+                count[char] += 1
+            else:
+                count[char] = 1
     return count
 
 
+def report(chars):
+
+    char_dict = get_count_per_char(chars)
+    report_list = []
+    for char in char_dict:
+        report_list.append({"char":char, "occurences":char_dict[char]})
+
+    def sort_on(dict):
+        return dict["occurences"]
+
+    report_list.sort(reverse=True, key=sort_on)
+
+    for char in report_list:
+        print(f"{char["char"]}: {char["occurences"]}")
+
+
+
+    
